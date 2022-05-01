@@ -1,0 +1,26 @@
+<h4>Distribute bonus points!</h4>
+<h5>Current Round: {{game.getRound()}}</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th class="text-center">Points</th>
+            <th></th>
+            <th class="text-center">Bonus</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of game.getPlayers()">
+            <td class="align-middle">{{player.toString()}}:</td>
+            <td class="text-center align-middle">{{player.getPoints()}}</td>
+            <td class="text-center"><button [disabled]="!buttonActive(player,false)" (click)="adjustBonus(player,false)" class="btn btn-primary">-</button></td>
+            <td class="text-center align-middle">{{player.getBonus()}}</td>
+            <td class="text-center"><button [disabled]="!buttonActive(player,true)" (click)="adjustBonus(player,true)" class="btn btn-primary">+</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex flex-row">
+    <button (click)="game.nextRound()" class="btn btn-primary flex-grow-1">End round</button>
+</div>

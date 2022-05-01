@@ -1,0 +1,9 @@
+<app-player-entry [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Initialize"></app-player-entry>
+
+<app-calling-phase  [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Calling"></app-calling-phase>
+
+<app-playing-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Playing"></app-playing-phase>
+
+<app-bonus-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Bonus"></app-bonus-phase>
+
+<div *ngIf="game.getGamePhase()==gamePhases.End">ToDo: Ende</div>

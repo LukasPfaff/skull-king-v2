@@ -1,0 +1,28 @@
+<h4>Make your calls!</h4>
+<h5>Current Round: {{game.getRound()}}</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th class="text-center">Points</th>
+            <th *ngIf="riskyDisplay()" class="text-center">Risky</th>
+            <th></th>
+            <th class="text-center">Call</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of game.getPlayers()">
+            <td class="align-middle">{{player.toString()}}:</td>
+            <td class="text-center align-middle">{{player.getPoints()}}</td>
+            <td *ngIf="riskyDisplay()" class="align-middle text-center"><input (click)="adjustRisky(player)" [disabled]="!riskyActive(player)" class="form-check-input" type="checkbox"></td>
+            <td class="text-center"><button [disabled]="!buttonActive(player,false)" (click)="adjustCall(player,false)" class="btn btn-primary">-</button></td>
+            <td class="text-center align-middle">{{player.getCall()}}</td>
+            <td class="text-center"><button [disabled]="!buttonActive(player,true)" (click)="adjustCall(player,true)" class="btn btn-primary">+</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex flex-row">
+    <button (click)="commitCalls()" class="btn btn-primary flex-grow-1">Commit Calls</button>
+</div>
