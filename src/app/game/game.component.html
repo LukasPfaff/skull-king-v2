@@ -1,9 +1,20 @@
-<app-player-entry [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Initialize"></app-player-entry>
+<nav *ngIf="game.getGamePhase()!=gamePhases.Initialize" class="nav nav-tabs mt-2">
+    <a role="button" class="nav-link" [ngClass]="{'active': tab}" (click)="tab ? '' : changeTab();">Game</a>
+    <a role="button" class="nav-link" [ngClass]="{'active': !tab}" (click)="!tab ? '' : changeTab();">Scoreboard</a>
+</nav>
 
-<app-calling-phase  [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Calling"></app-calling-phase>
+<div class="container mt-1" *ngIf="tab">
+    <app-player-entry [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Initialize"></app-player-entry>
 
-<app-playing-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Playing"></app-playing-phase>
+    <app-calling-phase  [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Calling"></app-calling-phase>
 
-<app-bonus-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Bonus"></app-bonus-phase>
+    <app-playing-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Playing"></app-playing-phase>
 
-<div *ngIf="game.getGamePhase()==gamePhases.End">ToDo: Ende</div>
+    <app-bonus-phase [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Bonus"></app-bonus-phase>
+
+    <app-end-phase [game]="game" *ngIf="game.getGamePhase()==gamePhases.End"></app-end-phase>
+</div>
+
+<div class="container mt-1" *ngIf="!tab">
+    <app-scoreboard [game]="game"></app-scoreboard>
+</div>

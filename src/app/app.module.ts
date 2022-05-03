@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { CallingPhaseComponent } from './calling-phase/calling-phase.component';
 import { PlayingPhaseComponent } from './playing-phase/playing-phase.component';
 import { BonusPhaseComponent } from './bonus-phase/bonus-phase.component';
+import { EndPhaseComponent } from './end-phase/end-phase.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BonusPhaseComponent } from './bonus-phase/bonus-phase.component';
     PlayerEntryComponent,
     CallingPhaseComponent,
     PlayingPhaseComponent,
-    BonusPhaseComponent
+    BonusPhaseComponent,
+    EndPhaseComponent,
+    ScoreboardComponent
   ],
   imports: [
     BrowserModule,

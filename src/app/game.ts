@@ -6,6 +6,7 @@ export class Game {
     private round: number;
     private riskyZero: boolean;
     private gamePhase: Phase;
+    private scoreboard: number[][] = new Array<number[]>();
 
     constructor(){
         this.round = 1;
@@ -16,11 +17,14 @@ export class Game {
      * Increase the round counter and reset the players calls/stitches
      */
     public nextRound(){
+        let points = new Array<number>();
         for(let i: number = 0; i < this.players.length; i++){
             let player: Player = this.players[i];
             player.setPoints(this.round);
+            points.push(player.getPoints());
             player.resetPlayer();
         }
+        this.scoreboard.push(points);
 
         if(this.round < 10){
             this.round++;
@@ -121,5 +125,18 @@ export class Game {
 
     public getGamePhase(): Phase{
         return this.gamePhase;
+    }
+
+    public getScoreboard(): number[][]{
+        return this.scoreboard;
+    }
+
+    /**
+     * 
+     * @returns index of the starting player this round
+     */
+    public getStartingPlayer():number{
+        let startingPlayer = this.round % this.players.length;
+        return startingPlayer == 0 ? this.players.length : startingPlayer-1;
     }
 }

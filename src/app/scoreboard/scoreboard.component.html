@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let player of game.getPlayers()" class="text-center">
+                {{player.toString()}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let round of game.getScoreboard()">
+            <td *ngFor="let score of round" class="text-center">{{score}}</td>
+        </tr>
+    </tbody>
+</table>

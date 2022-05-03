@@ -12,10 +12,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let player of game.getPlayers()">
-            <td class="align-middle">{{player.toString()}}:</td>
+        <tr *ngFor="let player of game.getPlayers(); let i = index" [ngClass]="{'highlight':i == game.getStartingPlayer()}">
+            <td class="align-middle" >{{player.toString()}}</td>
             <td class="text-center align-middle">{{player.getPoints()}}</td>
-            <td *ngIf="riskyDisplay()" class="align-middle text-center"><input (click)="adjustRisky(player)" [disabled]="!riskyActive(player)" class="form-check-input" type="checkbox"></td>
+            <td *ngIf="riskyDisplay()" class="align-middle text-center"><input type="checkbox" (click)="adjustRisky(player)" [disabled]="!riskyActive(player) || player.getCall() > 0" [checked]="player.getRiskyZero()" class="form-check-input"></td>
             <td class="text-center"><button [disabled]="!buttonActive(player,false)" (click)="adjustCall(player,false)" class="btn btn-primary">-</button></td>
             <td class="text-center align-middle">{{player.getCall()}}</td>
             <td class="text-center"><button [disabled]="!buttonActive(player,true)" (click)="adjustCall(player,true)" class="btn btn-primary">+</button></td>

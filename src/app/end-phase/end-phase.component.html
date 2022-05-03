@@ -1,0 +1,19 @@
+<h4>Final scores:</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th class="text-end">Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of players">
+            <td class="align-middle">{{player.toString()}}</td>
+            <td class="text-end align-middle">{{player.getPoints()}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex flex-row">
+    <button (click)="newGame()" class="btn btn-primary flex-grow-1">Start new Game</button>
+</div>

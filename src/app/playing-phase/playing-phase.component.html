@@ -6,13 +6,13 @@
             <th>Player</th>
             <th class="text-center">Points</th>
             <th></th>
-            <th class="text-center">Stitches</th>
+            <th class="text-center">Tricks</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let player of game.getPlayers()">
-            <td class="align-middle">{{player.toString()}}:</td>
+        <tr *ngFor="let player of game.getPlayers(); let i = index" [ngClass]="{'highlight':i == game.getStartingPlayer()}">
+            <td class="align-middle">{{player.toString()}}</td>
             <td class="align-middle text-center">{{player.getPoints()}}</td>
             <td class="button-container text-center"><button [disabled]="!buttonActive(player,false)" (click)="adjustStitches(player,false)" class="btn btn-primary">-</button></td>
             <td class="text-center align-middle">{{player.getStitches()}}</td>
@@ -22,5 +22,5 @@
 </table>
 
 <div class="d-flex flex-row">
-    <button (click)="commitStitches()" class="btn btn-primary flex-grow-1">Commit Stitches</button>
+    <button (click)="commitStitches()" class="btn btn-primary flex-grow-1">Commit Tricks</button>
 </div>

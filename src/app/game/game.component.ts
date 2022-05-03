@@ -12,6 +12,8 @@ export class GameComponent implements OnInit {
   game: Game = new Game();
   gamePhases = Phase;
 
+  tab: boolean = true;
+
   gameActive: boolean;
   riskyZero: boolean = true;
 
@@ -20,4 +22,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeTab(){
+    this.tab = !this.tab;
+  }
 }

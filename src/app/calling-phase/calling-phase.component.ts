@@ -22,6 +22,7 @@ export class CallingPhaseComponent implements OnInit {
     let call = player.getCall();    
     call = incr ? call+1 : call-1;
     player.setCall(call);
+    if(call > 0 && player.getRiskyZero()){this.adjustRisky(player);}
   }
 
   adjustRisky(player:Player){
