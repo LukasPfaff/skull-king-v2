@@ -2,8 +2,10 @@
     <a role="button" class="nav-link" [ngClass]="{'active': tab}" (click)="tab ? '' : changeTab();">Game</a>
     <a role="button" class="nav-link" [ngClass]="{'active': !tab}" (click)="!tab ? '' : changeTab();">Scoreboard</a>
 </nav>
-
+ 
 <div class="container mt-1" *ngIf="tab">
+    <app-stepper [(game)]="game" *ngIf="game.getGamePhase()!=gamePhases.Initialize AND game.getGamePhase()!=gamePhases.End"></app-stepper>
+
     <app-player-entry [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Initialize"></app-player-entry>
 
     <app-calling-phase  [(game)]="game" *ngIf="game.getGamePhase()==gamePhases.Calling"></app-calling-phase>
@@ -16,5 +18,5 @@
 </div>
 
 <div class="container mt-1" *ngIf="!tab">
-    <app-scoreboard [game]="game"></app-scoreboard>
+    <app-scoreboard [(game)]="game"></app-scoreboard>
 </div>

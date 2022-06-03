@@ -1,0 +1,17 @@
+<div class="d-flex mb-2" (click)="game.getGamePhase()!=gamePhases.Playing ? '' : game.setGamePhase(gamePhases.Calling)">
+   <div class="col text-center btn bg-secondary text-white" 
+        [ngClass]="{'bg-primary': game.getGamePhase()==gamePhases.Calling,
+                    'bg-secondary': game.getGamePhase()!=gamePhases.Calling}">
+        Calls
+   </div>
+   <div class="col text-center btn text-white mx-1" 
+        [ngClass]="{'bg-primary': game.getGamePhase()==gamePhases.Playing,
+                    'bg-secondary': game.getGamePhase()!=gamePhases.Playing}">
+        Play
+    </div>
+   <div class="col text-center btn text-white" 
+        [ngClass]="{'bg-primary': game.getGamePhase()==gamePhases.Bonus,
+                    'bg-secondary': game.getGamePhase()!=gamePhases.Bonus}">
+        Bonus
+    </div>
+</div>

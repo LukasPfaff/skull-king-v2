@@ -10,5 +10,15 @@
         <tr *ngFor="let round of game.getScoreboard()">
             <td *ngFor="let score of round" class="text-center">{{score}}</td>
         </tr>
+        <tr>
+            <td *ngFor="let player of game.getPlayers()" class="text-center">
+                <button class="btn btn-primary" (click)="activateEdit(player)">Edit</button>
+            </td>
+        </tr>
     </tbody>
 </table>
+<div class="d-flex" *ngIf="editActive">
+    <input [(ngModel)]="editValue" class="form-control col" type="number">
+    <div class="px-1"></div>
+    <button class="btn btn-primary col" (click)="confirmEdit()">Confirm</button>
+</div>

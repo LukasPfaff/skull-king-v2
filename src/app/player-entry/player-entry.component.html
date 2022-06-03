@@ -1,8 +1,8 @@
 <h4>Enter player names</h4>
 <div class="d-flex flex-row">
-    <button [disabled]="decrDis" class="btn btn-primary flex-grow-1" (click)="changePlayerCount(false)">-</button>
-    <div></div>
-    <button [disabled]="incrDis" class="btn btn-primary flex-grow-1" (click)="changePlayerCount(true)">+</button>
+    <button [disabled]="decrDis" class="btn btn-primary col" (click)="changePlayerCount(false)">-</button>
+    <div class="px-1"></div>
+    <button [disabled]="incrDis" class="btn btn-primary col" (click)="changePlayerCount(true)">+</button>
 </div>
 <br>
 <div *ngFor="let name of names; let i = index; trackBy: trackByFn">

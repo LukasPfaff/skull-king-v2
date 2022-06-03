@@ -43,6 +43,14 @@ export class Player {
     }
 
     /**
+     * Manually set the points in case somthing went wrong
+     * @param points 
+     */
+    public setPointsMan(points: number){
+        this.points = points;
+    }
+
+    /**
      * Sets most properties back to default, use at the start of a new round
      */
     public resetPlayer(){
@@ -51,8 +59,6 @@ export class Player {
         this.bonus = 0;
         this.riskyZero = false;
     }
-
-
 
     /**
      * Get a string to represent the player

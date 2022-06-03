@@ -14,6 +14,7 @@ import { PlayingPhaseComponent } from './playing-phase/playing-phase.component';
 import { BonusPhaseComponent } from './bonus-phase/bonus-phase.component';
 import { EndPhaseComponent } from './end-phase/end-phase.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     PlayingPhaseComponent,
     BonusPhaseComponent,
     EndPhaseComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
