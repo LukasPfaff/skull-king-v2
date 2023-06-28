@@ -1,6 +1,6 @@
 # SkullKingV2
 
-This project deals with Brent Becks cards game ScullKing and the aim to create a notepad to digitialize the computations arising in the game. It was realized to gain a platform and device independent access to this notepad tool compared to the Android version. It is hosted on [firebase](https://skullkingnotepad.web.app).
+This project deals with Brent Becks cards game ScullKing and the aim to create a notepad to digitialize the computations arising in the game. It was realized to gain a platform and device independent access to this notepad tool compared to the [Android version](https://github.com/LukasPfaff/skullking-notepad). It is hosted on [firebase](https://skullkingnotepad.web.app).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
