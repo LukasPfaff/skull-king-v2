@@ -136,7 +136,7 @@ export class Game {
      * @returns index of the starting player this round
      */
     public getStartingPlayer():number{
-        let startingPlayer = this.round % this.players.length;
-        return startingPlayer == 0 ? this.players.length : startingPlayer-1;
+        let startingPlayer = this.round-1 % this.players.length;
+        return startingPlayer == 0 ? this.players.length : startingPlayer;
     }
 }
